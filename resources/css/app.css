@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 5px;
+}
+
+:is(.dark) ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.bg-right-center {
+    background-position: right center;
+}
+
+.huit_a_dix {
+    grid-row: 15 / span 62;
+}
+
+.dix_a_douze {
+    grid-row: 75 / span 62;
+}
+
+.huit_a_douze {
+    grid-row: 15 / span 122;
+}
+
+.quatorze_a_seize {
+    grid-row: 163 / span 62;
+}
+
+.seize_a_dixhuit {
+    grid-row: 223 / span 62;
+}
+
+.quatorze_a_dixhuit {
+    grid-row: 163 / span 122;
+}
+
+.active {
+    @apply bg-gray-200;
+}
+
+:is(.dark) .active {
+    @apply bg-zinc-900;
+}
+
+.no-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scroll {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.checkbox-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.custom-checkbox {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: block;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 16px;
+    background-color: #d1d5db; /* Couleur de fond par défaut */
+    position: relative;
+}
+
+/* Styles pour la case cochée */
+.custom-checkbox:checked + .checkbox-label::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: calc(100% - 1.9rem);
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    border: 2px solid rgb(22 163 74);
+    background-color: rgb(
+        187 247 208
+    ); /* Couleur de remplissage lorsque cochée */
+    transition: left 0.3s ease-in-out;
+}
+
+/* Styles pour la case non cochée */
+.checkbox-label::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background-color: rgb(
+        254 202 202
+    ); /* Couleur de remplissage lorsque non cochée */
+    border: 2px solid rgb(220 38 38); /* Bordure lorsque non cochée */
+    transition: left 0.3s ease-in-out;
+}
